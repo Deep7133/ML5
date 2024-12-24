@@ -14,7 +14,7 @@ const resetButton = document.getElementById('reset-button');
 // Initialize MobileNet classifier
 async function initializeModel() {
     try {
-        classifier = await ml5.imageClassifier('MobileNet', () => {
+        classifier = await ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/HEoVgvTuA/', () => {
             isModelLoaded = true;
             modelStatus.textContent = 'MobileNet model loaded successfully!';
             modelStatus.style.backgroundColor = '#d4edda';
@@ -100,7 +100,6 @@ async function classifyImage() {
 // Display classification results
 function displayResults(results) {
     predictions.innerHTML = '';
-    
     results.forEach((result, index) => {
         const confidence = (result.confidence * 100).toFixed(2);
         const predictionEl = document.createElement('div');
